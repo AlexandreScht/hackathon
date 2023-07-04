@@ -8,7 +8,7 @@ const config = {
   db: knexfile,
   security: {
     jwt: {
-      secret: process.env.SECURITY__JWT__SECRET,
+      secret: process.env.SECURITY_JWT_SECRET,
       expiresIn: "2 days",
     },
     password: {
@@ -16,7 +16,7 @@ const config = {
       keylen: 512,
       iterations: 100000,
       digest: "sha512",
-      pepper: process.env.SECURITY__PASSWORD__PEPPER,
+      pepper: process.env.SECURITY_PASSWORD_PEPPER,
     },
   },
 }
