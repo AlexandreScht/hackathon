@@ -1,4 +1,4 @@
-import { InvalidAccessError, InvalidSessionError } from "../error.js"
+import { InvalidAccessError, InvalidSessionError } from "@/error.js"
 import mw from "./mw.js"
 
 const auth = (role) =>

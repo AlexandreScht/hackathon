@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
-import Login from "./Login";
-import HomePage from "./Home"
-import { AppContext } from "../hook/AppContext";
+import Login from "./login"
+import HomePage from "./home"
+
+import useAppContext from "../hook/AppContext"
 
 const Home = () => {
+  const {
+    state: { session },
+  } = useAppContext()
 
-  return <Login />;
-};
-
-Home.isPublic = true;
-export default Home;
+  return session ? <HomePage /> : <Login />
+}
+Home.isPublic = true
+export default Home
