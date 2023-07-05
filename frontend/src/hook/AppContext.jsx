@@ -1,4 +1,4 @@
- import createAPIClient from "@/utils/createAPIClient.js"
+import createAPIClient from "@/utils/createAPIClient.js"
 import parseSession from "@/utils/parseSession.js"
 import registerService from "@/services/register.js"
 import loginService from "@/services/login.js"
@@ -12,7 +12,7 @@ import {
 } from "react"
 import { parseCookies } from "nookies"
 
-export const AppContext = createContext()
+const AppContext = createContext()
 
 export const AppContextProvider = (props) => {
   // eslint-disable-next-line no-unused-vars
@@ -69,3 +69,4 @@ const useAppContext = () => {
   return { state, actions, services }
 }
 
+export default useAppContext
