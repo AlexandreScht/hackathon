@@ -1,17 +1,15 @@
-import { InvalidAccessError, InvalidSessionError } from "@/error.js"
+import { InvalidAccessError, InvalidSessionError } from "../error.js"
 import mw from "./mw.js"
 
 const auth = (role) =>
   mw(async (req, res, next) => {
-    const {
-      session: { user: sessionUser },
-    } = req
-
-    if (sessionUser === null || sessionUser === undefined) {
+    const { session } = req
+    console.log(req.session)
+    if (session === null || session === undefined) {
       throw new InvalidSessionError()
     }
 
-    if (sessionUser.role !== role && !role.includes(sessionUser.role)) {
+    if (!session.valid) {
       throw new InvalidAccessError()
     }
 

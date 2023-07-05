@@ -12,6 +12,13 @@ export const passwordValidator = yup
   )
   .label("Password")
 
+// upload
+export const stringHtmlValidator = yup
+  .string()
+  .test("isTextHtml", "Invalid file format", (value) => {
+    return value === "text/html"
+  })
+
 // collection (pagination, order, etc.)
 export const limitValidator = yup.number().integer().min(1).max(100).default(5)
 export const pageValidator = yup.number().integer().min(1).default(1)

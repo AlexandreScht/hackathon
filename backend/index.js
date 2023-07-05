@@ -1,4 +1,5 @@
 import express from "express"
+import multer from "multer"
 import cors from "cors"
 import config from "./src/config.js"
 import morgan from "morgan"

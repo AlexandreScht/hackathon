@@ -73,9 +73,7 @@ const prepareUsersRoutes = ({ app, db }) => {
       const jwt = jsonwebtoken.sign(
         {
           payload: {
-            user: {
-              id: user.id,
-            },
+            valid: true,
           },
         },
         config.security.jwt.secret,

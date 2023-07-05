@@ -6,14 +6,17 @@ const mw = (handle) => async (req, res, next) => {
     const { authorization } = req.headers
 
     if (!authorization) {
-      req.session = { user: null }
+      req.session = null
     } else {
-      const { payload } = jsonwebtoken.verify(
-        authorization.slice(7),
-        config.security.jwt.secret
-      )
-
-      req.session = payload
+      try {
+        const { payload } = jsonwebtoken.verify(
+          authorization,
+          config.security.jwt.secret
+        )
+        req.session = payload
+      } catch (e) {
+        req.session = null
+      }
     }
 
     await handle(req, res, next)
